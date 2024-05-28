@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Calendar with FullCalendar.js and Materialize CSS</title>
+    <link href="/style.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/materialize-css@1.0.0/dist/css/materialize.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="calendar"></div>
+
+    <!-- Modal Structure -->
+    <div id="eventModal" class="modal">
+      <div class="modal-content">
+        <h4>Event Details</h4>
+        <div class="row">
+          <form id="eventForm" class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="title" type="text" class="validate" />
+                <label for="title">Title</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="start" type="text" class="datetimepicker" />
+                <label for="start">Start Date and Time</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="end" type="text" class="datetimepicker" />
+                <label for="end">End Date and Time</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="body" class="materialize-textarea"></textarea>
+                <label for="body">Body</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="tag" type="text" class="validate" />
+                <label for="tag">Tag</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="url" type="text" class="validate" />
+                <label for="url">URL</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+                >Cancel</a
+              >
+              <button
+                class="btn waves-effect waves-light"
+                type="submit"
+                name="action"
+              >
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/materialize-css@1.0.0/dist/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="/script.js"></script>
+  </body>
+</html>
