@@ -1,4 +1,6 @@
-#calendar {
-  max-width: 900px;
-  margin: 50px auto;
+.modal {
+  max-height: 90%;
+}
+.modal .modal-content {
+  overflow-y: visible;
 }

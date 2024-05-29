@@ -3,28 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advanced Calendar with FullCalendar.js and Materialize CSS</title>
-    <link href="./style.css" rel="stylesheet" />
+    <title>Calendar App</title>
+    <!-- Materialize CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/materialize-css@1.0.0/dist/css/materialize.min.css"
       rel="stylesheet"
     />
-    <link
-      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
-      rel="stylesheet"
-    />
+    <link href="./style.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="calendar"></div>
+    <div class="container mt1">
+      <div id="calendar"></div>
+    </div>
 
-    <!-- Modal Structure -->
-    <div id="eventModal" class="modal">
+    <!-- Modal Structure for Viewing Event -->
+    <div id="viewModal" class="modal">
       <div class="modal-content">
-        <h4>Event Details</h4>
+        <h4 id="viewTitle"></h4>
+        <p><strong>Start:</strong> <span id="viewStart"></span></p>
+        <p><strong>End:</strong> <span id="viewEnd"></span></p>
+        <p><strong>Body:</strong> <span id="viewBody"></span></p>
+        <p><strong>Tags:</strong> <span id="viewTags"></span></p>
+        <a id="viewUrl" href="" target="_blank">More Info</a>
+      </div>
+      <div class="modal-footer">
+        <a
+          href="#!"
+          id="editButton"
+          class="modal-close waves-effect waves-green btn-flat"
+          >Edit</a
+        >
+        <a
+          href="#!"
+          id="deleteButton"
+          class="modal-close waves-effect waves-red btn-flat"
+          >Delete</a
+        >
+        <a href="#!" class="modal-close waves-effect waves-red btn-flat"
+          >Close</a
+        >
+      </div>
+    </div>
+
+    <!-- Modal Structure for Adding/Editing Event -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <h4 id="modalTitle">Add Event</h4>
         <div class="row">
           <form id="eventForm" class="col s12">
             <div class="row">
@@ -35,12 +59,12 @@
             </div>
             <div class="row">
               <div class="input-field col s6">
-                <input id="start" type="text" class="datetimepicker" />
-                <label for="start">Start Date and Time</label>
+                <input id="start" type="datetime-local" class="validate" />
+                <label for="start" class="active">Start</label>
               </div>
               <div class="input-field col s6">
-                <input id="end" type="text" class="datetimepicker" />
-                <label for="end">End Date and Time</label>
+                <input id="end" type="datetime-local" class="validate" />
+                <label for="end" class="active">End</label>
               </div>
             </div>
             <div class="row">
@@ -52,34 +76,35 @@
             <div class="row">
               <div class="input-field col s12">
                 <div id="tags" class="chips chips-placeholder"></div>
-                <label for="tags">Tags</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="url" type="text" class="validate" />
+                <input id="url" type="url" class="validate" />
                 <label for="url">URL</label>
               </div>
-            </div>
-            <div class="modal-footer">
-              <a href="#!" class="modal-close waves-effect waves-green btn-flat"
-                >Cancel</a
-              >
-              <button
-                class="btn waves-effect waves-light"
-                type="submit"
-                name="action"
-              >
-                Send
-              </button>
             </div>
           </form>
         </div>
       </div>
+      <div class="modal-footer">
+        <a
+          href="#!"
+          id="saveButton"
+          class="modal-close waves-effect waves-green btn-flat"
+          >Save</a
+        >
+        <a href="#!" class="modal-close waves-effect waves-red btn-flat"
+          >Cancel</a
+        >
+      </div>
     </div>
+
+    <!-- FullCalendar JS -->
+    <script src="./fullcalendar/dist/index.global.min.js"></script>
+    <!-- Materialize JS -->
     <script src="https://cdn.jsdelivr.net/npm/materialize-css@1.0.0/dist/js/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Custom JS -->
     <script src="./script.js"></script>
   </body>
 </html>
